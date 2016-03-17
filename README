@@ -1,0 +1,32 @@
+Open Mini
+Copyright 2011 Michele Cucchi <cucchi@cs.unibo.it>
+
+Programming software for Polmar Mini radio transceiver
+
+To build software type "make" in root distribution's directory
+
+An example of programming file format can be found in the "example.file" file.
+The first row is a counter of channels in three digit format, example 001 or 020 or 100,
+The following rows contains data informations of single channels:
+positional number of channel,rx frequency, tx frequency, rx tone, tx tone, rf output power
+
+the tone can be DCS or CTCSS tone
+the power can be L for low power 500mW, or H for high power ~2W
+
+example:
+
+001,433.075.00,433.075.00,00000,00000,H
+010,433.100.00,433.100.00,136.5,136.5,L
+
+
+DISCLAIMER: This software is designed to use only from HAM Radios licensed operators, modifying frequency and power factory settings will void manufacturer approval.
+Thanks to Davide Berardi IZ4WDV and Renzo Davoli IZ4DJE for radio experiments.
+
+Usage: openMini [OPTIONS]
+Runs Polmar Mini programming software.
+  -h, --help                 		Display this help and exit
+  -r, --read				Select read mode, read data from radio and write to file, if filename option is specified, if unspecified print read data to stdout
+  -w, --write				Select write mode, read data from file and write to radio, after a sanity check of data read
+  -f, --filename			Select filename of the file to save data from radio or read data to radio
+  -d, --device				Select filename of the serial device, attached to radio
+
